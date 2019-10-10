@@ -1,0 +1,69 @@
+﻿@using Monitor2.Models.Veiw
+@model List<ViewModel>
+
+@{
+    ViewData["Title"] = "Monitoring system";
+}
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Monitoring system</h1>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row bg-light">
+            <div class="col-3">
+                Сервис
+            </div>
+            <div class="col-sm">
+                Доступность
+            </div>
+            <div class="col-sm">
+                Время обработки
+            </div>
+            <div class="col-sm">
+                Количество сбоев за час
+            </div>
+            <div class="col-sm">
+                Максимальное время запроса за час
+            </div>
+            <div class="col-sm">
+                Количество сбоев за сутки
+            </div>
+            <div class="col-sm">
+                Максимальное время запроса за сутки
+            </div>
+        </div>
+        @foreach (var service in Model)
+        {
+            <div class="row" id="href" onclick="location.href='Request/ResponseService?url=@service.Url&offset=0&count=100';">
+                <div class="col-3">
+                    @service.Url
+                </div>
+                <div class="col-sm">
+                    @service.Availability
+                </div>
+                <div class="col-sm @service.DurationDivClass">
+                    @service.Duration
+                </div>
+                <div class="col-sm">
+                    @service.FailCountPerHour
+                </div>
+                <div class="col-sm text-warning">
+                    @service.MaxHourDuration
+                </div>
+                <div class="col-sm">
+                    @service.FailCountPerDay
+                </div>
+                <div class="col-sm text-warning">
+                    @service.MaxDayDuration
+                </div>
+            </div>
+        }
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>

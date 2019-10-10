@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191009204856_Init.cs" />
+    <Compile Remove="Migrations\20191009204856_Init.Designer.cs" />
+    <Compile Remove="Migrations\20191009210452_Init2.cs" />
+    <Compile Remove="Migrations\20191009210452_Init2.Designer.cs" />
+    <Compile Remove="Migrations\20191009232949_Init3.cs" />
+    <Compile Remove="Migrations\20191009232949_Init3.Designer.cs" />
+    <Compile Remove="Migrations\20191009233615_Init4.cs" />
+    <Compile Remove="Migrations\20191009233615_Init4.Designer.cs" />
+    <Compile Remove="Migrations\20191009234355_Init5.cs" />
+    <Compile Remove="Migrations\20191009234355_Init5.Designer.cs" />
+    <Compile Remove="Migrations\20191009234939_Init3.cs" />
+    <Compile Remove="Migrations\20191009234939_Init3.Designer.cs" />
+    <Compile Remove="Migrations\20191010000138_Init.cs" />
+    <Compile Remove="Migrations\20191010000138_Init.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Request\CheckServiceAsync.cshtml" />
+    <Content Remove="Views\Request\CheckServices.cshtml" />
+    <Content Remove="Views\Request\ResponseServices.cshtml" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>
