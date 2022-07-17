@@ -12,8 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy server
+      - name: Yandex Cloud CR "Login" Action for GitHub Actions
+        uses: yc-actions/yc-cr-login@v0.1-alpha
+        with:
+            yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+      - name: Build, tag, and push image to Yandex Cloud Container Registry
+        env:
+            CR_REGISTRY: ajesl070pstppl3g4v2o
+            CR_REPO: yc-cr-github-action
+            IMAGE_TAG: ${{ github.sha }}
         run: |
-          chmod +x build.sh
-          ./build.sh
-        shell: bash
+        docker build -t cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG .
+        docker push cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
