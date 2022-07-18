@@ -22,7 +22,6 @@ jobs:
             CR_REPO: yc-cr-github-action
             IMAGE_TAG: ${{ github.sha }}
         run: |
-          cd ./Monitor2
-          docker build -t cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG .
+          docker-compose -f docker-compose.yml -f docker-compose.override.yml build cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
           docker push cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
         shell: bash
