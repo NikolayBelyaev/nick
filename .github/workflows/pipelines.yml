@@ -24,6 +24,6 @@ jobs:
             IMAGE: monitor2
         run: |
           docker-compose -f docker-compose.yml -f docker-compose.override.yml build $IMAGE
-          docker tag $IMAGE:lagest cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
+          docker tag $IMAGE:latest cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
           docker push cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
         shell: bash
