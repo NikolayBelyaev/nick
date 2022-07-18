@@ -4,5 +4,5 @@ services:
   monitor2:
     image: monitor2
     build:
-      context: .
-      dockerfile: Monitor2/Dockerfile
+      context: ./Monitor2
+      dockerfile: Dockerfile
