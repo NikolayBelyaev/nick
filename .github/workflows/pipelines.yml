@@ -22,5 +22,6 @@ jobs:
             CR_REPO: yc-cr-github-action
             IMAGE_TAG: ${{ github.sha }}
         run: |
-        echo -e "$CR_REGISTRY"
-        echo -e "IMAGE_TAG"
+          echo -e "$CR_REGISTRY"
+          echo -e "IMAGE_TAG"
+        shell: bash
