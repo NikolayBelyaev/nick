@@ -6,7 +6,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
 COPY ["Monitor2.csproj", "Monitor2/"]
 RUN dotnet restore "Monitor2/Monitor2.csproj"
-COPY . .
+COPY . ./Monitor2
 WORKDIR "/src/Monitor2"
 RUN dotnet build "Monitor2.csproj" -c Release -o /app
 
