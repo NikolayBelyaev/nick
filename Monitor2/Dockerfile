@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
-COPY ["Monitor2/Monitor2.csproj", "Monitor2/"]
+COPY ["Monitor2.csproj", "Monitor2/"]
 RUN dotnet restore "Monitor2/Monitor2.csproj"
 COPY . .
 WORKDIR "/src/Monitor2"
