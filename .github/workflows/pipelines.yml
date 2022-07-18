@@ -19,9 +19,11 @@ jobs:
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
             CR_REGISTRY: ajesl070pstppl3g4v2o
-            CR_REPO: yc-cr-github-action
+            CR_REPO: test-repo
             IMAGE_TAG: ${{ github.sha }}
+            IMAGE: monitor2
         run: |
-          docker-compose -f docker-compose.yml -f docker-compose.override.yml build cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
+          docker-compose -f docker-compose.yml -f docker-compose.override.yml build $IMAGE
+          docker tag $IMAGE:lagest cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
           docker push cr.yandex/$CR_REGISTRY/$CR_REPO:$IMAGE_TAG
         shell: bash

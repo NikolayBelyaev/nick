@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   monitor2:
-    image: ${DOCKER_REGISTRY-}monitor2
+    image: monitor2
     build:
       context: .
       dockerfile: Monitor2/Dockerfile
